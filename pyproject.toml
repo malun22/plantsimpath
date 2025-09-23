@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=80.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plantsimpath"
+version = "0.0.1"
+description = "A Python helper class to make Plantsim Path usage accessible."
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+authors = [
+    {name = "Luca Bernstiel", email = "bernstiel@gmx.de"},
+]
+keywords = ["plant", "siemens", "simulation", "path"]
+urls = { "Homepage" = "https://github.com/malun22/plantsim-path" }
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["plantsimpath*"]
