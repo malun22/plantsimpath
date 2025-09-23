@@ -25,18 +25,32 @@ Find this package on [Pypi](https://pypi.org/project/plantsimpath/).
 ## Examples
 
 ```python
-import pyplantsim
+from plantsimpath import PlantsimPath
 
-with Plantsim(license=PlantsimLicense.STUDENT, version=PlantsimVersion.V_MJ_22_MI_1,
-                    visible=True, trusted=True, suppress_3d=False, show_msg_box=False) as plantsim:
+station = PlantsimPath(".Models.Model.Station")
+station_wo_dot = PlantsimPath("Models.Model.Station")
 
-        plantsim.new_model()
+print(
+    f'Do Plantsim path always begin with a "."? {"Yes" if station == station_wo_dot else "No"}'
+)
 
-        plantsim.save_model(
-            folder_path=r"C:\users\documents\plantsimmodels", file_name="MyNewModel")
+attribute_div = station / "ProcTime"
+attribute_add = station + "ProcTime"
+attribute_init = PlantsimPath(station, "ProcTime")
+
+print(
+    f"Are all paths the same? {'Yes' if attribute_div == attribute_add == attribute_init else 'No'}"
+)
+
+model = station.parent()
+is_child = station.is_child_of(model)
+print(f"Is {station} a child of {model}? {'Yes' if is_child else 'No'}")
+
+system_path = station.to_path()
+print(f"{station} is located at {system_path}")
 ```
 
-There are further examples in the [example folder](https://github.com/malun22/pyplantsim/tree/main/examples).
+There are further examples in the [example folder](https://github.com/malun22/plantsimpath/tree/main/examples).
 
 ## Further documentation
 
