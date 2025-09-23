@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Union, Iterator, List
 
+
 class PlantsimPath:
     """
     PlantSim path object for handling and concatenating hierarchical object paths.
@@ -97,13 +98,21 @@ class PlantsimPath:
 
         :return: List of path parts.
         """
-        # Remove leading dot for splitting
-        path_str = self._path.lstrip(".")
-        if not path_str:
-            return []
-        # Split on '.' but keep parts like '[0]' together
-        import re
-        return [part for part in re.split(r'(?<!\])\.', path_str) if part]
+        path = self._path.lstrip(".")
+        parts, buf, bracket = [], "", 0
+        for c in path:
+            if c == "[":
+                bracket += 1
+            elif c == "]":
+                bracket -= 1
+            if c == "." and bracket == 0:
+                parts.append(buf)
+                buf = ""
+            else:
+                buf += c
+        if buf:
+            parts.append(buf)
+        return parts
 
     def parent(self) -> "PlantsimPath":
         """
@@ -144,9 +153,9 @@ class PlantsimPath:
             return
         # Basic validation: no forbidden characters
         if "\n" in entry or "\r" in entry:
-            raise ValueError("Path entries cannot contain newline or carriage return characters.")
-        if self._path == "":
-            self._path = entry
+            raise ValueError(
+                "Path entries cannot contain newline or carriage return characters."
+            )
         elif entry.startswith(".") or entry.startswith("[") or self._path.endswith("."):
             self._path += entry
         else:
@@ -160,11 +169,11 @@ class PlantsimPath:
         :rtype: str
         """
         return str(self)
-    
+
     def to_path(self) -> Path:
         """
         Convert the PlantsimPath to a pathlib Path object.
-        
+
         :return: pathlib.Path object.
         """
         return Path(*self.parts())
