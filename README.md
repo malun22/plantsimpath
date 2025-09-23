@@ -48,6 +48,13 @@ print(f"Is {station} a child of {model}? {'Yes' if is_child else 'No'}")
 
 system_path = station.to_path()
 print(f"{station} is located at {system_path}")
+
+table_path = PlantsimPath('.Models.Model.Table["ColumnIndex",10]')
+object_in_table = table_path / "ProcTime"
+
+print(
+    f"Is {object_in_table} a child of {table_path}? {'Yes' if object_in_table.is_child_of(table_path) else 'No'}"
+)
 ```
 
 There are further examples in the [example folder](https://github.com/malun22/plantsimpath/tree/main/examples).
