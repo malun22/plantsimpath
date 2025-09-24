@@ -179,7 +179,7 @@ class PlantsimPath:
         return Path(*self.parts())
 
     @classmethod
-    def from_path(cls: "PlantsimPath", path: Union[Path, str]) -> "PlantsimPath":
+    def from_path(cls, path: Union[Path, str]) -> "PlantsimPath":
         """
         Create a PlantsimPath from a pathlib.Path or string.
 
