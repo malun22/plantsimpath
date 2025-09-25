@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>plantsimpath documentation &mdash; plantsimpath 0.0.3 documentation</title>
+  <title>plantsimpath documentation &mdash; plantsimpath 0.0.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=47de8214"></script>
+      <script src="_static/documentation_options.js?v=8c5712d9"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -50,6 +50,8 @@
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.is_empty"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.is_empty()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.parent"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.parent()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.parts"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.parts()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_folder_path"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_folder_path()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_object_path"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_object_path()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_path"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_path()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_str"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_str()</span></code></a></li>
 </ul>
@@ -188,6 +190,34 @@ documentation for details.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of path parts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.to_folder_path">
+<span class="sig-name descname"><span class="pre">to_folder_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.to_folder_path" title="Link to this definition"></a></dt>
+<dd><p>Convert the PlantsimPath to a pathlib Path object referring to the meta data of a folder / frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pathlib.Path object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.to_object_path">
+<span class="sig-name descname"><span class="pre">to_object_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.to_object_path" title="Link to this definition"></a></dt>
+<dd><p>Convert the PlantsimPath to a pathlib Path object referring to the meta data of an object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pathlib.Path object.</p>
 </dd>
 </dl>
 </dd></dl>
