@@ -24,6 +24,12 @@ def make_path():
     system_path = station.to_path()
     print(f"{station} is located at {system_path}")
 
+    system_path = station.to_object_path()
+    print(f"{station}'s meta data is located at {system_path}")
+
+    system_path = model.to_folder_path()
+    print(f"{model}'s meta data is located at {system_path}")
+
     table_path = PlantsimPath('.Models.Model.Table["ColumnIndex",10]')
     object_in_table = table_path / "ProcTime"
 

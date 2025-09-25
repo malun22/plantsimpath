@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "plantsimpath"
-version = "0.0.3"
+version = "0.0.4"
 description = "A Python helper class to make Plantsim Path usage accessible."
 readme = "README.md"
 requires-python = ">=3.13"

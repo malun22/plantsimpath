@@ -178,6 +178,22 @@ class PlantsimPath:
         """
         return Path(*self.parts())
 
+    def to_folder_path(self) -> Path:
+        """
+        Convert the PlantsimPath to a pathlib Path object referring to the meta data of a folder / frame.
+
+        :return: pathlib.Path object.
+        """
+        return Path(*self.parts(), "$").with_suffix(".yaml")
+
+    def to_object_path(self) -> Path:
+        """
+        Convert the PlantsimPath to a pathlib Path object referring to the meta data of an object.
+
+        :return: pathlib.Path object.
+        """
+        return Path(*self.parts()).with_suffix(".yaml")
+
     @classmethod
     def from_path(cls, path: Union[Path, str]) -> "PlantsimPath":
         """
