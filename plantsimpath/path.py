@@ -205,3 +205,74 @@ class PlantsimPath:
         if isinstance(path, str):
             path = Path(path)
         return cls(*[str(part) for part in path.parts])
+
+    @property
+    def name(self) -> str:
+        """
+        Represents the last part of the path.
+
+        :return: Last path segment or empty string if path is empty.
+        :rtype: str
+        """
+        parts = self.parts()
+        return parts[-1] if parts else ""
+
+    @property
+    def root(self) -> str:
+        """
+        First segment of the path.
+
+        :return: Root path segment or empty string if path is empty.
+        :rtype: str
+        """
+        parts = self.parts()
+        return parts[0] if parts else ""
+
+    @property
+    def depth(self) -> int:
+        """
+        Number of segments in the path.
+
+        :return: Path depth.
+        :rtype: int
+        """
+        return len(self.parts())
+
+    def with_name(self, new_name: str) -> "PlantsimPath":
+        """
+        Return a new PlantsimPath with the last segment replaced.
+
+        :param new_name: New last segment.
+        :return: New PlantsimPath instance.
+        """
+        parts = self.parts()
+        if not parts:
+            return PlantsimPath(new_name)
+        return PlantsimPath(*parts[:-1], new_name)
+
+    def relative_to(self, other: "PlantsimPath") -> "PlantsimPath":
+        """
+        Return the relative path from 'other' to self.
+
+        :param other: Base path.
+        :return: Relative PlantsimPath.
+        :raises ValueError: If self is not a child of other.
+        """
+        self_parts = self.parts()
+        other_parts = other.parts()
+
+        if (
+            len(self_parts) <= len(other_parts)
+            or self_parts[: len(other_parts)] != other_parts
+        ):
+            raise ValueError(f"{self!r} is not a child of {other!r}")
+
+        return PlantsimPath(*self_parts[len(other_parts) :])
+
+    def is_root(self) -> bool:
+        """
+        Check if path has exactly one segment.
+
+        :return: True if path has one segment, False otherwise.
+        """
+        return len(self.parts()) == 1
