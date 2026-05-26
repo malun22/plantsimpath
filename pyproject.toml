@@ -17,13 +17,9 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = [
+    "pre-commit",
+    "ruff",
     "mypy",
-    "types-pywin32",
-    "pandas-stubs",
-    "types-psutil",
-    "loguru",
-    "plantsimpath",
-    "packaging",
     "bump-my-version"
 ]
 docs = [
@@ -44,3 +40,32 @@ include = ["plantsimpath*"]
 
 [tool.setuptools.package-data]
 plantsimpath = ["py.typed"]
+
+[tool.ruff]
+line-length = 99
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["optuna", "tests", "docs"]
+lines-after-imports = 2
+force-single-line = true
+force-sort-within-sections = true
+order-by-type = false
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
