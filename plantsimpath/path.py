@@ -1,5 +1,7 @@
 from pathlib import Path
-from typing import Union, Iterator, List
+from typing import Iterator
+from typing import List
+from typing import Union
 
 
 class PlantsimPath:
@@ -44,7 +46,7 @@ class PlantsimPath:
         """
         return f"PlantsimPath('{self._path}')"
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other: object) -> bool:
         """
         Compare two PlantsimPath objects.
 
@@ -153,9 +155,7 @@ class PlantsimPath:
             return
         # Basic validation: no forbidden characters
         if "\n" in entry or "\r" in entry:
-            raise ValueError(
-                "Path entries cannot contain newline or carriage return characters."
-            )
+            raise ValueError("Path entries cannot contain newline or carriage return characters.")
         elif entry.startswith(".") or entry.startswith("[") or self._path.endswith("."):
             self._path += entry
         else:
@@ -180,7 +180,8 @@ class PlantsimPath:
 
     def to_folder_path(self) -> Path:
         """
-        Convert the PlantsimPath to a pathlib Path object referring to the meta data of a folder / frame.
+        Convert the PlantsimPath to a pathlib Path object referring to the meta data of a folder
+        or frame.
 
         :return: pathlib.Path object.
         """
@@ -261,10 +262,7 @@ class PlantsimPath:
         self_parts = self.parts()
         other_parts = other.parts()
 
-        if (
-            len(self_parts) <= len(other_parts)
-            or self_parts[: len(other_parts)] != other_parts
-        ):
+        if len(self_parts) <= len(other_parts) or self_parts[: len(other_parts)] != other_parts:
             raise ValueError(f"{self!r} is not a child of {other!r}")
 
         return PlantsimPath(*self_parts[len(other_parts) :])
