@@ -15,6 +15,23 @@ authors = [
 keywords = ["plant", "siemens", "simulation", "path"]
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+    "mypy",
+    "types-pywin32",
+    "pandas-stubs",
+    "types-psutil",
+    "loguru",
+    "plantsimpath",
+    "packaging",
+    "bump-my-version"
+]
+docs = [
+    "sphinx",
+    "sphinx-autodoc-typehints",
+    "sphinx-rtd-theme"
+]
+
 [project.urls]
 Homepage = "https://github.com/malun22/plantsim-path"
 Documentation = "https://malun22.github.io/plantsimpath/"
