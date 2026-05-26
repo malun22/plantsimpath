@@ -6,16 +6,16 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>plantsimpath documentation &mdash; plantsimpath 0.0.4 documentation</title>
+  <title>plantsimpath documentation &mdash; plantsimpath 0.0.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=8c5712d9"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/documentation_options.js?v=1fd71caa"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -45,15 +45,21 @@
 <li><a class="reference internal" href="#">plantsimpath documentation</a><ul>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath"><code class="docutils literal notranslate"><span class="pre">PlantsimPath</span></code></a><ul>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.append"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.append()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.depth"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.depth</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.from_path"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.from_path()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.is_child_of"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.is_child_of()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.is_empty"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.is_empty()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.is_root"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.is_root()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.name"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.name</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.parent"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.parent()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.parts"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.parts()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.relative_to"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.relative_to()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.root"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.root</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_folder_path"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_folder_path()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_object_path"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_object_path()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_path"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_path()</span></code></a></li>
 <li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.to_str"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.to_str()</span></code></a></li>
+<li><a class="reference internal" href="#plantsimpath.path.PlantsimPath.with_name"><code class="docutils literal notranslate"><span class="pre">PlantsimPath.with_name()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -93,12 +99,12 @@ documentation for details.</p>
 </div>
 <dl class="py class" id="module-plantsimpath.path">
 <dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">plantsimpath.path.</span></span><span class="sig-name descname"><span class="pre">PlantsimPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">entries</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">plantsimpath.path.</span></span><span class="sig-name descname"><span class="pre">PlantsimPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">entries</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>PlantSim path object for handling and concatenating hierarchical object paths.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>entries</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="#plantsimpath.path.PlantsimPath" title="plantsimpath.path.PlantsimPath"><em>PlantsimPath</em></a><em>]</em>) – Entries to be concatenated into a path.</p>
+<dd class="field-odd"><p><strong>entries</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#plantsimpath.path.PlantsimPath" title="plantsimpath.path.PlantsimPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlantsimPath</span></code></a>]</span>) – Entries to be concatenated into a path.</p>
 </dd>
 <dt class="field-even">Variables<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>_path</strong> (<em>str</em>) – Internal string representation of the path.</p>
@@ -110,7 +116,7 @@ documentation for details.</p>
 <dd><p>Append a path entry to the current path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>entry</strong> (<em>str</em>) – Path entry to append.</p>
+<dd class="field-odd"><p><strong>entry</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Path entry to append.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
@@ -118,9 +124,23 @@ documentation for details.</p>
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.depth">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">depth</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.depth" title="Link to this definition"></a></dt>
+<dd><p>Number of segments in the path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Path depth.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.from_path">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.from_path" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.from_path" title="Link to this definition"></a></dt>
 <dd><p>Create a PlantsimPath from a pathlib.Path or string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -167,6 +187,34 @@ documentation for details.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.is_root">
+<span class="sig-name descname"><span class="pre">is_root</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.is_root" title="Link to this definition"></a></dt>
+<dd><p>Check if path has exactly one segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if path has one segment, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.name" title="Link to this definition"></a></dt>
+<dd><p>Represents the last part of the path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Last path segment or empty string if path is empty.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.parent">
 <span class="sig-name descname"><span class="pre">parent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.parent" title="Link to this definition"></a></dt>
 <dd><p>Get the parent path.</p>
@@ -195,9 +243,44 @@ documentation for details.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.relative_to">
+<span class="sig-name descname"><span class="pre">relative_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.relative_to" title="Link to this definition"></a></dt>
+<dd><p>Return the relative path from ‘other’ to self.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>other</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#plantsimpath.path.PlantsimPath" title="plantsimpath.path.PlantsimPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlantsimPath</span></code></a></span>) – Base path.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#plantsimpath.path.PlantsimPath" title="plantsimpath.path.PlantsimPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlantsimPath</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Relative PlantsimPath.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If self is not a child of other.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.root">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">root</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.root" title="Link to this definition"></a></dt>
+<dd><p>First segment of the path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Root path segment or empty string if path is empty.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.to_folder_path">
 <span class="sig-name descname"><span class="pre">to_folder_path</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.to_folder_path" title="Link to this definition"></a></dt>
-<dd><p>Convert the PlantsimPath to a pathlib Path object referring to the meta data of a folder / frame.</p>
+<dd><p>Convert the PlantsimPath to a pathlib Path object referring to the meta data of a folder
+or frame.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></span></p>
@@ -245,7 +328,24 @@ documentation for details.</p>
 <dd class="field-odd"><p>Path as string.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plantsimpath.path.PlantsimPath.with_name">
+<span class="sig-name descname"><span class="pre">with_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#plantsimpath.path.PlantsimPath.with_name" title="Link to this definition"></a></dt>
+<dd><p>Return a new PlantsimPath with the last segment replaced.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – New last segment.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#plantsimpath.path.PlantsimPath" title="plantsimpath.path.PlantsimPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">PlantsimPath</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>New PlantsimPath instance.</p>
 </dd>
 </dl>
 </dd></dl>
